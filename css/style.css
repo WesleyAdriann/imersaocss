@@ -1,3 +1,18 @@
+@font-face {
+    font-family: 'Roboto';
+    src: url('../assets/fonts/Roboto-Regular.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'FiraSans';
+    src: url('../assets/fonts/FiraSans-Regular.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Cookie';
+    src: url('../assets/fonts/Cookie-Regular.ttf') format('truetype');
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -8,8 +23,8 @@ body {
     background: #8e2de2;
     background: -webkit-linear-gradient(to top, #8e2de2, #4a00e0); 
     background: linear-gradient(to top, #8e2de2, #4a00e0); 
-    font-family: Arial;
-    font-size: 12px;
+    font-family: 'Roboto';
+    font-size: 0.8em;
     min-height: 100vh;
 }
 
@@ -52,6 +67,7 @@ header {
 .menu a {
     display: block;
     padding: 10px;
+    color: black;
 }
 
 a {
@@ -70,14 +86,52 @@ a:hover {
 }
 
 .site-title {
-    font-size: 3em;
+    font-size: 5em;
+    font-family: 'Cookie', cursive;
 }
 
 .site-subtitle {
     font-style: italic;
 }
+
+.portfolio {
+    padding: 2em;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.portfolio h2 {
+    color: whitesmoke;
+    font-family: 'FiraSans';
+    font-size: 2.5em; 
+    margin-bottom: 0.5em;
+}
+
+.portfolio .grid-portfolio {
+    align-content: center;
+    display: grid;
+    flex-grow: 1;
+    gap: 1.5em;
+    justify-content: center;
+    /* justify-items: center; */
+}
+
+@media (min-width: 600px) {
+    .portfolio .grid-portfolio {
+        grid-template-columns: repeat(2, 240px);
+    }
+}
+
+@media (min-width: 880px) {
+    .portfolio .grid-portfolio {
+        grid-template-columns: repeat(3, 240px);
+    }
+}
    
 .img-portfolio {
-    width: 100px;
-    height: 100px;
+    height: 180px;
+    object-fit: cover;
+    object-position: left bottom;
+    width: 240px;
 }
