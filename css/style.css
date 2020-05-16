@@ -1,3 +1,4 @@
+@charset "utf-8";
 @font-face {
     font-family: 'Roboto';
     src: url('../assets/fonts/Roboto-Regular.ttf') format('truetype');
@@ -28,6 +29,10 @@ body {
     min-height: 100vh;
 }
 
+a {
+    text-decoration: none;
+}
+
 
 @media (min-width: 400px) {
     body {
@@ -45,7 +50,14 @@ header {
     align-items: center;
     display: flex;
     justify-content: center;
-    height: 100vh;
+    min-height: 100vh;
+}
+
+section h2 {
+    color: whitesmoke;
+    font-family: 'FiraSans';
+    font-size: 2.5em; 
+    margin-bottom: 0.5em;
 }
    
 .menu{
@@ -53,6 +65,7 @@ header {
     position: fixed;
     top: 0;
     width: 100vw;
+    z-index: 1;
 }
 
 .menu ul {
@@ -61,22 +74,34 @@ header {
 }
 
 .menu li{
-    list-style: none
+    list-style: none;
 }
 
 .menu a {
+    color: black;
     display: block;
     padding: 10px;
-    color: black;
+    transition: text-shadow, transform, 0.1s;
 }
 
-a {
-    color:teal;
-    text-decoration: none;
+.menu a:active,
+.menu a:hover {
+    text-shadow: 0 0 1px black;
+    transform: scale(1.05);
 }
 
-a:hover {
-    text-decoration: underline;
+.titles {
+    transform: scale(.2) translateY(50vh);
+    opacity: 0;
+
+    animation: linear .9s animacao-titulo forwards;
+}
+
+@keyframes animacao-titulo {
+    to {
+        transform: scale(1) translateY(0);
+        opacity: 1; 
+    }
 }
 
 .site-subtitle,
@@ -94,6 +119,7 @@ a:hover {
     font-style: italic;
 }
 
+.contato,
 .portfolio {
     padding: 2em;
     min-height: 100vh;
@@ -101,12 +127,6 @@ a:hover {
     flex-direction: column;
 }
 
-.portfolio h2 {
-    color: whitesmoke;
-    font-family: 'FiraSans';
-    font-size: 2.5em; 
-    margin-bottom: 0.5em;
-}
 
 .portfolio .grid-portfolio {
     align-content: center;
@@ -114,7 +134,6 @@ a:hover {
     flex-grow: 1;
     gap: 1.5em;
     justify-content: center;
-    /* justify-items: center; */
 }
 
 @media (min-width: 600px) {
@@ -134,4 +153,10 @@ a:hover {
     object-fit: cover;
     object-position: left bottom;
     width: 240px;
+}
+
+.contato img {
+    filter: invert(1);
+    margin: 1em;
+    width: 3em;
 }
